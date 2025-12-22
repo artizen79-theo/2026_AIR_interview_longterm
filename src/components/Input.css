@@ -1,0 +1,43 @@
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.input-label {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.label-main {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-text);
+}
+
+.label-sub {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-weight: 400;
+    margin-top: 0.25rem;
+}
+
+.input-field {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    outline: none;
+    font-size: 1rem;
+    transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.input-field:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(190, 153, 73, 0.1);
+    /* Gold/Primary fade */
+}

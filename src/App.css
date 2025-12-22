@@ -1,0 +1,100 @@
+.app-container {
+  min-height: 100vh;
+  padding-bottom: 4rem;
+  background-color: var(--color-bg);
+}
+
+.form-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.counters-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.section-desc {
+  margin-bottom: 1.5rem;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.conditional-fields {
+  overflow: hidden;
+  padding-left: 1rem;
+  border-left: 2px solid var(--color-border);
+  margin-left: 0.5rem;
+  margin-top: 1rem;
+}
+
+.subsection-divider {
+  height: 1px;
+  background-color: var(--color-border);
+  margin: 1.5rem 0;
+  display: none;
+  /* Hidden for sidebar style */
+}
+
+.submit-area {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.app-footer {
+  text-align: center;
+  margin-top: 4rem;
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+}
+
+.success-view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-card {
+  text-align: center;
+  background: var(--color-surface);
+  padding: 3rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  max-width: 500px;
+  margin: 1rem;
+}
+
+.success-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.success-title {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+  font-weight: 800;
+}
+
+.success-subtitle {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  margin-bottom: 2rem;
+}
+
+.success-desc {
+  margin-bottom: 2rem;
+  color: var(--color-text);
+}
+
+@media (min-width: 768px) {
+  .counters-grid {
+    grid-template-columns: 1fr;
+    /* Keep single col for counters to give space for long names, or 2 cols if desired */
+  }
+}

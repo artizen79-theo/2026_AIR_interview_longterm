@@ -1,0 +1,59 @@
+.app-header {
+    text-align: center;
+    padding: 4rem 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.logo-area {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.logo-placeholder {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    letter-spacing: 0.2em;
+    border: 2px solid var(--color-primary);
+    padding: 0.5rem 1rem;
+}
+
+.main-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.sub-title {
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+}
+
+.header-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+}
+
+.mobile-break {
+    display: none;
+}
+
+@media (max-width: 640px) {
+    .main-title {
+        font-size: 1.5rem;
+    }
+
+    .sub-title {
+        font-size: 1rem;
+    }
+
+    .mobile-break {
+        display: block;
+    }
+}

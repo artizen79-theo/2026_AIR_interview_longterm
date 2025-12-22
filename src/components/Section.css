@@ -1,0 +1,40 @@
+.section-card {
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.section-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    display: block;
+}
+
+.section-subtitle {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    font-weight: 400;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+.section-content {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 640px) {
+    .section-card {
+        padding: 1.5rem;
+    }
+}
