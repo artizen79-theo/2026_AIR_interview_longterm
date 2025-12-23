@@ -1,20 +1,20 @@
 .section-card {
-    background-color: var(--color-surface);
+    background-color: #ffffff;
     border-radius: var(--radius-lg);
-    padding: 2rem;
+    padding: 2.5rem;
     margin-bottom: 2rem;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid rgba(0, 0, 0, 0.03);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--color-border);
 }
 
 .section-header {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.25rem;
     border-bottom: 1px solid var(--color-border);
 }
 
 .section-title {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     font-weight: 700;
     color: var(--color-text);
     display: block;
@@ -23,9 +23,11 @@
 .section-subtitle {
     font-size: 0.9rem;
     color: var(--color-text-muted);
-    font-weight: 400;
-    margin-top: 0.25rem;
+    font-weight: 500;
+    margin-top: 0.35rem;
     display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
 }
 
 .section-content {

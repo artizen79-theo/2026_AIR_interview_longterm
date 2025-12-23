@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
 
 :root {
-  --color-bg: #f8f9fa;
+  --color-bg: #ffffff;
+  /* WordPress match */
   --color-surface: #ffffff;
   --color-text: #1a1a1a;
   --color-text-muted: #666666;
-  --color-primary: #be9949; /* Gold-ish for Koganecho */
+  --color-primary: #be9949;
   --color-primary-hover: #a38138;
   --color-border: #e2e8f0;
   --color-error: #ef4444;
@@ -18,17 +19,8 @@
   --font-sans: 'Inter', 'Noto Sans JP', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #0f172a;
-    --color-surface: #1e293b;
-    --color-text: #f8fafc;
-    --color-text-muted: #94a3b8;
-    --color-primary: #fcd34d;
-    --color-primary-hover: #fbbf24;
-    --color-border: #334155;
-  }
-}
+/* Force Light Theme for embedding consistency */
+/* Removed @media (prefers-color-scheme: dark) to ensure it blends with WP white background */
 
 * {
   box-sizing: border-box;
@@ -45,12 +37,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-input, textarea, button, select {
+input,
+textarea,
+button,
+select {
   font-family: inherit;
   font-size: inherit;
 }
 
 ::selection {
   background-color: var(--color-primary);
-  color: #000;
+  color: #fff;
 }
