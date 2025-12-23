@@ -248,7 +248,7 @@ function App() {
                 {formData.wishToMove === 'はい / Yes' && (
                   <>
                     <Input
-                      label="希望하는 스튜디오 (希望するスタジオ)"
+                      label="希望するスタジオ"
                       subLabel="Desired studio"
                       id="desiredStudio"
                       value={formData.desiredStudio}
