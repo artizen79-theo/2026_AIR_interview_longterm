@@ -46,12 +46,12 @@ function App() {
     const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw_AfBhwgxJm8wCLtAHpI7sgDgGPU3FIW7I795aHsa6UOcv4R8TetbNLjrVRYbBUxE/exec';
 
     try {
-      // Using 'no-cors' mode which is required for Google Apps Script POST requests from a browser
+      // Using 'text/plain' to avoid CORS preflight issues while keeping no-cors
       await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'text/plain;charset=utf-8',
         },
         body: JSON.stringify(formData),
       });
