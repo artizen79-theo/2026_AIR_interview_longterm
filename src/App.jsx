@@ -26,7 +26,6 @@ function App() {
     supportImprovements: '',
     wishToContinue: '', // 'yes' | 'no'
     wishToMove: '',     // 'yes' | 'no' (only if continue is yes)
-    desiredStudio: '',  // (only if move is yes)
     requests: '',
     goals: ''
   });
@@ -42,20 +41,32 @@ function App() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate network request or use real backend
-    // const GOOGLE_SCRIPT_URL = '...';
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz5LeDFBRRdddE9ry_00gtr22rw5s1xMR9XdLi2pMPibf6RrStwEo6BL67G98e3-uc/exec';
 
-    console.log('Form Submitted:', formData);
+    try {
+      // Using 'no-cors' mode which is required for Google Apps Script POST requests from a browser
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    confetti({
-      particleCount: 150,
-      spread: 70,
-      origin: { y: 0.6 },
-      colors: ['#be9949', '#fcd34d', '#ffffff'] // Goldish theme
-    });
+      setIsSubmitted(true);
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#be9949', '#fcd34d', '#ffffff']
+      });
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('送信中にエラーが発生しました。もう一度お試しください。 / An error occurred. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -231,17 +242,6 @@ function App() {
                   value={formData.wishToMove}
                   onChange={(val) => handleChange('wishToMove', val)}
                 />
-
-                {formData.wishToMove === 'yes' && (
-                  <Input
-                    label="希望するスタジオ"
-                    subLabel="Desired studio"
-                    id="desiredStudio"
-                    value={formData.desiredStudio}
-                    onChange={(e) => handleChange('desiredStudio', e.target.value)}
-                    placeholder="理由や希望があればご記入ください / Reasons and wishes"
-                  />
-                )}
 
                 <Textarea
                   label="Q4-2. 黄金町 AIR プログラムに対してご要望があればご記入ください。"
