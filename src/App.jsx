@@ -24,8 +24,9 @@ function App() {
     supportSatisfaction: '', // '1', '2', '3', '4', '5'
     supportGoodPoints: '',
     supportImprovements: '',
-    wishToContinue: '', // 'yes' | 'no'
-    wishToMove: '',     // 'yes' | 'no' (only if continue is yes)
+    wishToContinue: '',
+    wishToMove: '',
+    desiredStudio: '',
     requests: '',
     goals: ''
   });
@@ -242,6 +243,17 @@ function App() {
                   value={formData.wishToMove}
                   onChange={(val) => handleChange('wishToMove', val)}
                 />
+
+                {formData.wishToMove === 'はい / Yes' && (
+                  <Input
+                    label="希望するスタジオ"
+                    subLabel="Desired studio"
+                    id="desiredStudio"
+                    value={formData.desiredStudio}
+                    onChange={(e) => handleChange('desiredStudio', e.target.value)}
+                    placeholder="理由や希望があればご記入ください / Reasons and wishes"
+                  />
+                )}
 
                 <Textarea
                   label="Q4-2. 黄金町 AIR プログラムに対してご要望があればご記入ください。"

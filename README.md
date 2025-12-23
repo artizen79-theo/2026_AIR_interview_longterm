@@ -52,7 +52,7 @@ To save the form data to Google Sheets, you need to set up a Google Apps Script.
         data.supportImprovements, // Added Q3
         data.wishToContinue,
         data.wishToMove,
-        data.desiredStudio,
+        data.desiredStudio,   // Restored
         data.requests,
         data.goals
       ];
