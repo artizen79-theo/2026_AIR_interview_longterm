@@ -179,11 +179,11 @@ function App() {
             subLabel="Are you satisfied with the support for artists in the Koganecho AIR program?"
             name="supportSatisfaction"
             options={[
-              { label: '1. よくない / Not satisfied (0%)', value: '1' },
-              { label: '2. あまり良くない / Somewhat dissatisfied (25%)', value: '2' },
-              { label: '3. 普通 / Neutral (50%)', value: '3' },
-              { label: '4. よい / Satisfied (75%)', value: '4' },
-              { label: '5. とてもよい / Very satisfied (90%)', value: '5' }
+              { label: '1. よくない / Not satisfied (0%)', value: '1. よくない / Not satisfied (0%)' },
+              { label: '2. あまり良くない / Somewhat dissatisfied (25%)', value: '2. あまり良くない / Somewhat dissatisfied (25%)' },
+              { label: '3. 普通 / Neutral (50%)', value: '3. 普通 / Neutral (50%)' },
+              { label: '4. よい / Satisfied (75%)', value: '4. よい / Satisfied (75%)' },
+              { label: '5. とてもよい / Very satisfied (90%)', value: '5. とてもよい / Very satisfied (90%)' }
             ]}
             value={formData.supportSatisfaction}
             onChange={(val) => handleChange('supportSatisfaction', val)}
