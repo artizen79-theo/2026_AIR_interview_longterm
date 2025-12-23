@@ -17,9 +17,13 @@ function App() {
     activityReport: '',
     nokisakiCount: 0,
     artistMtgCount: 0,
+    onAirCount: 0,
     patrolCount: 0,
     cleanupCount: 0,
     otherInteraction: '',
+    supportSatisfaction: '', // '1', '2', '3', '4', '5'
+    supportGoodPoints: '',
+    supportImprovements: '',
     wishToContinue: '', // 'yes' | 'no'
     wishToMove: '',     // 'yes' | 'no' (only if continue is yes)
     desiredStudio: '',  // (only if move is yes)
@@ -38,7 +42,8 @@ function App() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate network request
+    // Simulate network request or use real backend
+    // const GOOGLE_SCRIPT_URL = '...';
     await new Promise(resolve => setTimeout(resolve, 2000));
 
     console.log('Form Submitted:', formData);
@@ -104,20 +109,19 @@ function App() {
 
         <Section title="Q1. 活動実績" subTitle="Activity Report" delay={0.2}>
           <Textarea
-            label="黄金町 AIR 2024 参加中の自身の活動実績について教えてください。"
-            subLabel="What activities did you do last year (2024)? (e.g. Participation in exhibitions, events, etc.)"
+            label="黄金町 AIR 2025 参加中の自身の活動実績について教えてください。"
+            subLabel="What activities did you do last year (2025)? (e.g. Participation in exhibitions, events, etc.)"
             id="activityReport"
             value={formData.activityReport}
             onChange={(e) => handleChange('activityReport', e.target.value)}
             required
-            placeholder=""
           />
         </Section>
 
         <Section title="Q2. 地域との活動" subTitle="Community Interaction" delay={0.3}>
           <p className="section-desc">
-            黄金町 AIR 2024 参加中の黄金町の地域との関わりについて教えてください。<br />
-            How did you interact with this region during Koganecho AIR 2024?
+            黄金町 AIR 2025 参加中の黄金町の地域との関わりについて教えてください。<br />
+            How did you interact with this region during Koganecho AIR 2025?
           </p>
 
           <div className="counters-grid">
@@ -130,6 +134,11 @@ function App() {
               label="アーティスト連絡会議 / Artist's MTG"
               value={formData.artistMtgCount}
               onChange={(val) => handleChange('artistMtgCount', val)}
+            />
+            <Counter
+              label="ON AIR"
+              value={formData.onAirCount}
+              onChange={(val) => handleChange('onAirCount', val)}
             />
             <Counter
               label="防犯パトロール / Crime prevention patrol"
@@ -152,10 +161,45 @@ function App() {
           />
         </Section>
 
-        <Section title="Q3. 継続参加について" subTitle="Future Plans" delay={0.4}>
+        {/* New Q3 */}
+        <Section title="Q3. アーティスト支援について" subTitle="Support for Artists" delay={0.35}>
           <RadioGroup
-            label="黄金町 AIR 2025 への継続参加を希望しますか?"
-            subLabel="Do you wish to continue participating in Koganecho AIR 2025?"
+            label="黄金町 AIRのアーティスト支援は充実していますか？"
+            subLabel="Are you satisfied with the support for artists in the Koganecho AIR program?"
+            name="supportSatisfaction"
+            options={[
+              { label: '1. よくない / Not satisfied (0%)', value: '1' },
+              { label: '2. あまり良くない / Somewhat dissatisfied (25%)', value: '2' },
+              { label: '3. 普通 / Neutral (50%)', value: '3' },
+              { label: '4. よい / Satisfied (75%)', value: '4' },
+              { label: '5. とてもよい / Very satisfied (90%)', value: '5' }
+            ]}
+            value={formData.supportSatisfaction}
+            onChange={(val) => handleChange('supportSatisfaction', val)}
+          />
+          <div className="mt-6">
+            <Textarea
+              label="具体的にあれば教えてください - よいところ"
+              subLabel="Please give us more details - What was good"
+              id="supportGoodPoints"
+              value={formData.supportGoodPoints}
+              onChange={(e) => handleChange('supportGoodPoints', e.target.value)}
+            />
+            <Textarea
+              label="改善してほしいところ"
+              subLabel="What could be improved"
+              id="supportImprovements"
+              value={formData.supportImprovements}
+              onChange={(e) => handleChange('supportImprovements', e.target.value)}
+            />
+          </div>
+        </Section>
+
+        {/* Renumbered Q4 */}
+        <Section title="Q4. 継続参加について" subTitle="Future Plans" delay={0.4}>
+          <RadioGroup
+            label="黄金町 AIR 2026 への継続参加を希望しますか?"
+            subLabel="Do you wish to continue participating in Koganecho AIR 2026?"
             name="wishToContinue"
             options={[
               { label: 'はい / Yes', value: 'yes' },
@@ -177,7 +221,7 @@ function App() {
                 <div className="subsection-divider"></div>
 
                 <RadioGroup
-                  label="Q3-1. スタジオの移動を希望していますか?"
+                  label="Q4-1. スタジオの移動を希望していますか?"
                   subLabel="Do you want to change your studio?"
                   name="wishToMove"
                   options={[
@@ -200,7 +244,7 @@ function App() {
                 )}
 
                 <Textarea
-                  label="Q3-2. 黄金町 AIR プログラムに対してご要望があればご記入ください。"
+                  label="Q4-2. 黄金町 AIR プログラムに対してご要望があればご記入ください。"
                   subLabel="If you have any requests for the Koganecho AIR program, please let us know."
                   id="requests"
                   value={formData.requests}
@@ -208,7 +252,7 @@ function App() {
                 />
 
                 <Textarea
-                  label="Q3-3. 今後、黄金町 AIR への参加を継続する中での活動目標や計画について教えてください。"
+                  label="Q4-3. 今後、黄金町 AIR への参加を継続する中での活動目標や計画について教えてください。"
                   subLabel="Do you have any future activity goals or plans? (Include community involvement)"
                   id="goals"
                   value={formData.goals}
@@ -228,7 +272,7 @@ function App() {
       </form>
 
       <footer className="app-footer">
-        © 2025 Koganecho Area Management Center
+        © 2026 Koganecho Area Management Center
       </footer>
     </div>
   );

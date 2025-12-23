@@ -1,6 +1,6 @@
-# Koganecho Artist in Residence 2025 Questionnaire
+# Koganecho Artist in Residence 2026 Questionnaire
 
-This is a modern, responsive frontend for the Koganecho AIR 2025 Questionnaire, built with React and Vite. It features a premium design with smooth animations and bilingual support.
+This is a modern, responsive frontend for the Koganecho AIR 2026 Questionnaire, built with React and Vite. It features a premium design with smooth animations and bilingual support.
 
 ## Getting Started
 
@@ -43,9 +43,13 @@ To save the form data to Google Sheets, you need to set up a Google Apps Script.
         data.activityReport,
         data.nokisakiCount,
         data.artistMtgCount,
+        data.onAirCount,      // Added
         data.patrolCount,
         data.cleanupCount,
         data.otherInteraction,
+        data.supportSatisfaction, // Added Q3
+        data.supportGoodPoints,   // Added Q3
+        data.supportImprovements, // Added Q3
         data.wishToContinue,
         data.wishToMove,
         data.desiredStudio,
