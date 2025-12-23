@@ -27,6 +27,7 @@ function App() {
     wishToContinue: '',
     wishToMove: '',
     desiredStudio: '',
+    moveReason: '',
     requests: '',
     goals: ''
   });
@@ -245,14 +246,24 @@ function App() {
                 />
 
                 {formData.wishToMove === 'はい / Yes' && (
-                  <Textarea
-                    label="移動したい理由や希望があればご記入ください。"
-                    subLabel="Reasons and wishes for moving"
-                    id="desiredStudio"
-                    value={formData.desiredStudio}
-                    onChange={(e) => handleChange('desiredStudio', e.target.value)}
-                    placeholder="理由や希望があればご記入ください / Reasons and wishes"
-                  />
+                  <>
+                    <Input
+                      label="希望하는 스튜디오 (希望するスタジオ)"
+                      subLabel="Desired studio"
+                      id="desiredStudio"
+                      value={formData.desiredStudio}
+                      onChange={(e) => handleChange('desiredStudio', e.target.value)}
+                      placeholder="例: Studio A"
+                    />
+                    <Textarea
+                      label="移動したい理由や希望があればご記入ください。"
+                      subLabel="Reasons and wishes for moving"
+                      id="moveReason"
+                      value={formData.moveReason}
+                      onChange={(e) => handleChange('moveReason', e.target.value)}
+                      placeholder="理由や希望があればご記入ください / Reasons and wishes"
+                    />
+                  </>
                 )}
 
                 <Textarea
