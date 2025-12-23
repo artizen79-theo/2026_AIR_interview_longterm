@@ -43,7 +43,7 @@ function App() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz5LeDFBRRdddE9ry_00gtr22rw5s1xMR9XdLi2pMPibf6RrStwEo6BL67G98e3-uc/exec';
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw_AfBhwgxJm8wCLtAHpI7sgDgGPU3FIW7I795aHsa6UOcv4R8TetbNLjrVRYbBUxE/exec';
 
     try {
       // Using 'no-cors' mode which is required for Google Apps Script POST requests from a browser
