@@ -245,9 +245,9 @@ function App() {
                 />
 
                 {formData.wishToMove === 'はい / Yes' && (
-                  <Input
-                    label="希望するスタジオ"
-                    subLabel="Desired studio"
+                  <Textarea
+                    label="移動したい理由や希望があればご記入ください。"
+                    subLabel="Reasons and wishes for moving"
                     id="desiredStudio"
                     value={formData.desiredStudio}
                     onChange={(e) => handleChange('desiredStudio', e.target.value)}
