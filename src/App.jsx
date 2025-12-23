@@ -213,15 +213,15 @@ function App() {
             subLabel="Do you wish to continue participating in Koganecho AIR 2026?"
             name="wishToContinue"
             options={[
-              { label: 'はい / Yes', value: 'yes' },
-              { label: 'いいえ / No', value: 'no' }
+              { label: 'はい / Yes', value: 'はい / Yes' },
+              { label: 'いいえ / No', value: 'いいえ / No' }
             ]}
             value={formData.wishToContinue}
             onChange={(val) => handleChange('wishToContinue', val)}
           />
 
           <AnimatePresence>
-            {formData.wishToContinue === 'yes' && (
+            {formData.wishToContinue === 'はい / Yes' && (
               <motion.div
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: 'auto', opacity: 1 }}
@@ -236,8 +236,8 @@ function App() {
                   subLabel="Do you want to change your studio?"
                   name="wishToMove"
                   options={[
-                    { label: 'はい / Yes', value: 'yes' },
-                    { label: 'いいえ / No', value: 'no' }
+                    { label: 'はい / Yes', value: 'はい / Yes' },
+                    { label: 'いいえ / No', value: 'いいえ / No' }
                   ]}
                   value={formData.wishToMove}
                   onChange={(val) => handleChange('wishToMove', val)}
