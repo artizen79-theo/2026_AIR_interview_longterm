@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import { motion, AnimatePresence } from 'framer-motion';
 import Header from './components/Header';
@@ -39,6 +39,43 @@ function App() {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
+  useEffect(() => {
+    let interval;
+    if (isSubmitted) {
+      // Immediate firework
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ['#be9949', '#fcd34d', '#ffffff']
+      });
+
+      // Continuous fireworks
+      interval = setInterval(() => {
+        const randomInRange = (min, max) => Math.random() * (max - min) + min;
+        confetti({
+          particleCount: 50,
+          spread: 60,
+          origin: { x: randomInRange(0.1, 0.4), y: Math.random() - 0.2 },
+          colors: ['#be9949', '#fcd34d', '#ffffff'],
+          ticks: 200,
+          gravity: 0.8,
+          startVelocity: 30,
+        });
+        confetti({
+          particleCount: 50,
+          spread: 60,
+          origin: { x: randomInRange(0.6, 0.9), y: Math.random() - 0.2 },
+          colors: ['#be9949', '#fcd34d', '#ffffff'],
+          ticks: 200,
+          gravity: 0.8,
+          startVelocity: 30,
+        });
+      }, 2000);
+    }
+    return () => clearInterval(interval);
+  }, [isSubmitted]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -57,12 +94,6 @@ function App() {
       });
 
       setIsSubmitted(true);
-      confetti({
-        particleCount: 150,
-        spread: 70,
-        origin: { y: 0.6 },
-        colors: ['#be9949', '#fcd34d', '#ffffff']
-      });
     } catch (error) {
       console.error('Submission error:', error);
       alert('送信中にエラーが発生しました。もう一度お試しください。 / An error occurred. Please try again.');
@@ -80,13 +111,31 @@ function App() {
           transition={{ duration: 0.5 }}
           className="success-card"
         >
-          <div className="success-icon">✨</div>
+          <div className="success-icon">✨ 🗓️ ✨</div>
           <h2 className="success-title">ありがとうございます！</h2>
           <p className="success-subtitle">Thank you for your response.</p>
-          <p className="success-desc">回答を記録しました。</p>
-          <Button onClick={() => window.location.reload()}>
-            Back to Form / フォームに戻る
+          <p className="success-desc">
+            回答を記録しました。<br />
+            続いて、面談スケジュールのご予約をお願いいたします。<br />
+            <span style={{ fontSize: '0.9rem', color: 'var(--color-text-muted)' }}>
+              Next, please book your interview schedule.
+            </span>
+          </p>
+          <Button onClick={() => window.open('https://script.google.com/macros/s/AKfycby3dfBCr-OrV3ndPCCej2n_3gTUSDwpHZKdPGVOmeVwEwE6mkA7TzR4S242PDOEhMg/exec', '_blank')}>
+            <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+              <span style={{ fontSize: '1.4rem' }}>🗓️</span>
+              <span>面談スケジュール予約 / Interview Schedule Booking</span>
+            </span>
           </Button>
+          <div style={{ marginTop: '2rem' }}>
+            <button
+              className="text-button"
+              onClick={() => window.location.reload()}
+              style={{ background: 'none', border: 'none', color: 'var(--color-text-muted)', cursor: 'pointer', textDecoration: 'underline', fontSize: '0.85rem' }}
+            >
+              フォームに戻る / Back to Form
+            </button>
+          </div>
         </motion.div>
       </div>
     );
